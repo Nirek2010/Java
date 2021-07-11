@@ -1,0 +1,69 @@
+import java.util.Scanner;
+public class MaxMin {
+
+   public static void main(String[] args) {
+
+      Scanner kb = new Scanner(System.in);  
+    
+      System.out.println("This program will find the maximum, minimum, median, and mean of 3 numbers."); 
+      
+      System.out.println("Enter first number:");      
+      int a = kb.nextInt(); 
+    
+      System.out.println("Enter second number:");      
+      int b = kb.nextInt();   
+    
+      System.out.println("Enter third number:");      
+      int c = kb.nextInt(); 
+     
+      int min = minFunction(a, b, c);
+      int max = maxFunction(a, b, c);
+      int median = medianFunction(a, b, c);
+      double mean = meanFunction(a, b, c);
+      System.out.println("Minimum Value = " + min);
+      System.out.println("Maximum Value = " + max);
+      System.out.println("Median Value = " + median);
+      System.out.println("Mean Value = " + mean);
+   }
+
+   // for minimum
+   public static int minFunction(int number1, int number2, int number3) {
+     int min;
+     if (number1 < number2 && number1 < number3)
+         min = number1;
+     else if (number2 < number1 && number2 < number3)
+         min = number2;
+     else
+         min = number3;
+     return min; 
+   }
+   
+   // for maximum
+   public static int maxFunction(int number1, int number2, int number3) {
+     int max;
+	 if (number1 > number2 && number1 > number3)
+         max = number1;
+     else if (number2 > number1 && number2 > number3)
+         max = number2;
+     else
+         max = number3;
+      return max;
+   }
+     
+    // for median
+    public static int medianFunction(int number1, int number2, int number3) {
+      int median;
+      if ((number1 < number2 && number2 < number3) || (number3 < number2 && number2 < number1))
+         median = number2;
+      else if ((number2 < number1 && number1 < number3) || (number3 < number1 && number1 < number2))
+         median = number1;
+      else
+         median = number3;
+      return median;
+   }
+    // for mean
+    public static double meanFunction(int number1, int number2, int number3) {
+      double mean = (number1 + number2 + number3) / 3.0;      
+      return mean;
+   }
+}
